@@ -1,0 +1,27 @@
+{
+	"name": "sample event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "practice trigger",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"file_name": "@triggerBody().file_name"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/practice/blobs/test",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/8a9ae36b-adb7-4cf5-9c26-1710aa1776de/resourceGroups/nagendra_67/providers/Microsoft.Storage/storageAccounts/nagendraadls67",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

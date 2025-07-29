@@ -1,0 +1,9 @@
+{
+	"name": "nagendra-adf-67",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "52324244-1ad7-405d-8a83-b04d07af87fd",
+		"tenantId": "c8084ff5-ca6a-425e-8f33-03b0af516a85"
+	}
+}

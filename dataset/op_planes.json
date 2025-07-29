@@ -1,0 +1,34 @@
+{
+	"name": "op_planes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ICAO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IATA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MAKER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DESCRIPTION",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "practice",
+			"table": "Planes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
