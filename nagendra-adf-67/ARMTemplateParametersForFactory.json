@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "nagendra-adf-67"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://nagendraadls67.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://nagendra-kv.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "nag-67.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "nag_practice"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "nagendra"
+		},
+		"RestServiceJson_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/"
+		},
+		"SqldbParameter_properties_typeProperties_server": {
+			"value": "nag-67.database.windows.net"
+		},
+		"SqldbParameter_properties_typeProperties_database": {
+			"value": "@{linkedService().db_name}"
+		},
+		"SqldbParameter_properties_typeProperties_userName": {
+			"value": "nagendra"
+		},
+		"sample event_properties_practice trigger_parameters_file_name": {
+			"value": "@triggerBody().file_name"
+		},
+		"sample event_properties_typeProperties_scope": {
+			"value": "/subscriptions/8a9ae36b-adb7-4cf5-9c26-1710aa1776de/resourceGroups/nagendra_67/providers/Microsoft.Storage/storageAccounts/nagendraadls67"
+		}
+	}
+}
