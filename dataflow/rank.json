@@ -1,0 +1,67 @@
+{
+	"name": "rank",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "emp_input",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "emp_dept_output",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "window1"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EmployeeID as string,",
+				"          FirstName as string,",
+				"          LastName as string,",
+				"          DepartmentID as string,",
+				"          Salary as string,",
+				"          HireDate as string,",
+				"          ManagerID as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 window(over(DepartmentID),",
+				"     desc(Salary, true),",
+				"     rank_sal = rank()) ~> window1",
+				"window1 select(mapColumn(",
+				"          E_ID = EmployeeID,",
+				"          FirstName,",
+				"          Dept_ID = DepartmentID,",
+				"          Salary,",
+				"          rank_sal",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
