@@ -2,7 +2,9 @@
 	"name": "AzureDataLakeStorage1",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"annotations": [],
+		"annotations": [
+			"Test"
+		],
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://nagendraadls67.dfs.core.windows.net/"
